@@ -1,25 +1,23 @@
 from pydantic import BaseModel
 
 
-    
 class User(BaseModel):
-    id = int
-    name = str
-    email = str
-    hashed_password = str
-    rating = int 
-    paid = bool
-
-class PaidUser(BaseModel):
-    id = int 
-    name = str
-    email = str 
-    paid = bool
-
-class ShowUser( BaseModel ):
-    id = int
-    name = str
-    email = str
+    name : str
+    email : str
+    password : str
     
+class UserInDB(User):
+    id : int
+    rating : int 
+    paid : bool
+    class Config:
+        orm_mode = True
 
-
+class ShowUser(BaseModel):
+    id : int
+    name : str
+    email : str
+    paid : bool
+    class Config:
+        orm_mode = True
+    

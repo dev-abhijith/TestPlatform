@@ -6,8 +6,7 @@ from app.crud import CRUDquestions
 from typing import List
 
 router = APIRouter(
-    prefix="/questions",
-    tags=['Questions']
+    prefix="/questions"
 )
 
 @router.get("/", response_model=List[question.ShowQuestion])
