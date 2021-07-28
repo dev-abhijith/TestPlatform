@@ -1,17 +1,18 @@
-from sqlalchemy.engine.interfaces import CreateEnginePlugin
-from app import crud
+
 from app.crud import CRUDusers
 from fastapi import APIRouter,Depends
 from sqlalchemy.orm.session import Session
 from app.schemas import user
-from app.db.database import get_db
+from app.api.deps import get_db, get_current_user
 from typing import List
+from app.models import models
+
 router = APIRouter(
     prefix= "/user"
 )
 
 @router.get("/",response_model=List[user.ShowUser])
-def show_all(db:Session = Depends(get_db)):
+def show_all(db:Session = Depends(get_db), current_user: models.Users = Depends(get_current_user) ):
     return CRUDusers.get_all(db)
 
 @router.post("/", status_code= 201)

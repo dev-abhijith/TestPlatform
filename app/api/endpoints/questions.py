@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 from app.schemas import question
 from sqlalchemy.orm.session import Session
-from app.db.database import get_db
+from app.api.deps import get_db
 from app.crud import CRUDquestions
 from typing import List
 

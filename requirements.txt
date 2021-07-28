@@ -3,6 +3,8 @@ click==8.0.1
 fastapi==0.67.0
 greenlet==1.1.0
 h11==0.12.0
+jose==1.0.0
+passlib==1.7.4
 pydantic==1.8.2
 SQLAlchemy==1.4.22
 starlette==0.14.2
